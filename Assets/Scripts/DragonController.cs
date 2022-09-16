@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DragonController : MonoBehaviour
 {
-    public Animator animator;
-    public GameObject dragon;
+    public Animator[] animators;
+    public GameObject[] dragon;
 
     bool firstPlay;
 
@@ -13,18 +13,33 @@ public class DragonController : MonoBehaviour
     {
         if (!firstPlay)
         {
-            animator.SetTrigger("StartAnim");
-            firstPlay = true;
+            foreach(Animator anim in animators)
+            {
+                anim.SetTrigger("StartAnim");
+                firstPlay = true;
+            }
+
         }
         else
         {
-            animator.speed = 1f;
+
+            foreach(Animator anim in animators)
+            {
+                anim.speed = 1f;
+
+            }
+            // animator.speed = 1f;
         }
     }
 
     public void PauseAnimation()
     {
-        animator.speed = 0f;
+        foreach(Animator anim in animators)
+        {
+            anim.speed = 0f;
+
+        }
+        // animator.speed = 0f;
     }
 
     private void Update()
