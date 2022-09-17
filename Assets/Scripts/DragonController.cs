@@ -5,9 +5,11 @@ using UnityEngine;
 public class DragonController : MonoBehaviour
 {
     public Animator[] animators;
-    public GameObject[] dragon;
+    // public GameObject[] dragon;
+
 
     bool firstPlay;
+
 
     public void StartAnimation()
     {
